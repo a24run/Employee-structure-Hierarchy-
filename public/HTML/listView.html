@@ -1,0 +1,39 @@
+<div ng-controller="ctrl">
+	<script type="text/ng-template"  id="tree.html">
+		<span><span class="lead">{{data.name}}</span><span>-</span>{{data.designation}}</span>
+		<ul>
+	    	<li ng-repeat="data in data.children" ng-include="'tree.html'"></li>
+		</ul>
+	</script>
+	<div>
+		<h1> Employee List</h1>
+	</div>
+	<div>
+		<form>
+			<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<span class="lead">Name:</span>
+				<input class="col-sm-4 form-control" type="text" name="" ng-model="profile.name">
+			</div>
+			<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<span class="lead">Designation</span>
+				<input class="form-control" type="text" name="" ng-model="profile.designation">
+			</div>
+			<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<span class="lead">Reporting Manager</span>
+				<input class="form-control" type="text" name="" ng-model="profile.manager">
+			</div>
+			<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<button class="col-sm-3 btn btn-primary center" ng-click="sendProfile()">Submit</button>
+			</div>
+			<div class="form-group col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+				<button class="col-sm-3 btn btn-primary" ng-click="DepthFirstSearch()">ListView</button>
+				<button class="pull-right col-sm-3 btn btn-primary" ng-click="hierarchical()">hierarchical View </button>
+			</div>
+		</form>
+		<div class="tree col-sm-12" >
+			<ul>
+		    	<li ng-repeat="data in tree" ng-include="'tree.html'"></li>
+			</ul>
+		</div>
+	</div>
+</div>
